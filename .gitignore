@@ -1,0 +1,9 @@
+saved_models
+**/__pycache__/
+*.pyc
+
+.DS_Store
+result
+data
+public_test
+*.tar

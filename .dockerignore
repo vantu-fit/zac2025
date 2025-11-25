@@ -1,0 +1,55 @@
+# Exclude unnecessary files from Docker build context
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+
+# Exclude large data directories
+crop_50_1/
+samples/
+public_test/
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Exclude Jupyter files
+.ipynb_checkpoints/
+*.ipynb
+
+# Exclude IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Exclude OS files
+.DS_Store
+Thumbs.db
+
+# Exclude documentation
+README.md
+*.md
+
+# Exclude model files (they'll be copied explicitly if needed)
+# model/
+# saved_models/

@@ -1,0 +1,6 @@
+jupyterlab
+numpy
+tqdm
+ultralytics
+python-dotenv
+opencv-python
