@@ -1,15 +1,16 @@
 # ZALO AI Challenge 2025 - Object Detection Solution
 
-## 📋 Overview
+##  Overview
 
 This solution implements an object detection system for drone videos using YOLOv8 with color-based filtering. The system detects and tracks specific objects across video frames by combining deep learning object detection with color similarity matching against reference images.
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 .
 ├── annotate_video.py          # Video annotation visualization tool
 ├── predict.py                 # Main prediction script
+├── predict.sh                 # Shell script to run
 ├── predict_notebook.ipynb     # Jupyter notebook for experimentation
 ├── Dockerfile                 # Docker container configuration
 ├── Makefile                   # Build and run commands
@@ -21,6 +22,8 @@ This solution implements an object detection system for drone videos using YOLOv
 ├── result/                    # Output directory
 ├── saved_models/              # Trained models
 │   └── yolov8l_1e.pt         # YOLOv8 Large model
+|── zalo-ai-train-yolo-2.ipynb  # Training notebook
+└── start_jupyter.sh        # Script to start Jupyter Notebook
 ```
 
 ##  Quick Start
@@ -39,12 +42,11 @@ docker build -t zalo-ai-2025 .
 2. **Run prediction:**
 
 ```bash
-docker run --gpus all --rm \
-  -v $(pwd)/data:/data \
-  -v $(pwd)/result:/result \
-  --env-file .docker.env \
-  zalo-ai-2025 \
-  python3 /code/predict.py
+docker run --gpus all --rm -it \
+		-v "$(PWD)/data/public_test/public_test:/data" \
+		-v "$(PWD)/result:/result" \
+		--env-file .docker.env \
+		zac2025:v1 \
 ```
 
 Or use the Makefile:
@@ -52,6 +54,9 @@ Or use the Makefile:
 ```bash
 make run-docker
 ```
+
+Replace the paths as needed.
+
 3. **Visualize results:**
 
 ```bash
